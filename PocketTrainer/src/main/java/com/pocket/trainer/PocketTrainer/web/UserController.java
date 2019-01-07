@@ -1,9 +1,12 @@
 package com.pocket.trainer.PocketTrainer.web;
 
-import com.pocket.trainer.PocketTrainer.domain.Users;
-import com.pocket.trainer.PocketTrainer.service.UsersService;
+import com.pocket.trainer.PocketTrainer.Security.SecurityService;
+import com.pocket.trainer.PocketTrainer.domain.User;
+import com.pocket.trainer.PocketTrainer.service.UserService;
+import com.pocket.trainer.PocketTrainer.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,34 +16,69 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    private UsersService usersService;
+    private UserService userService;
 
-    @RequestMapping("/index/user")
-    public void listUsers() {
-        List<Users> users = usersService.listUsers();
+    @Autowired
+    private SecurityService securityService;
+
+    @Autowired
+    private UserValidator userValidator;
+
+    @RequestMapping(value = "/registration", method = RequestMethod.GET)
+    public String registration(Model model){
+        model.addAttribute("userForm", new User());
+        return "registration";
+    }
+
+    @RequestMapping(value = "/registration", method = RequestMethod.POST)
+    public  String registration(@ModelAttribute("userForm") User userForm,
+                                BindingResult bindingResult, Model model){
+        userValidator.validate(userForm, bindingResult);
+
+        if(bindingResult.hasErrors()){
+            return "registration";
         }
 
-        @RequestMapping("/user")
-        public String home() {
-        return "redirect:/index";
+        userService.addUser(userForm);
+
+        securityService.autoLogin(userForm.getLogin(), userForm.getConfirmPassword());
+
+        return "redirect:/welcome";
+    }
+
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login(Model model, String error, String logout){
+        if (error != null){
+            model.addAttribute("error", "Login or password is incorrect");
         }
 
-        @RequestMapping(value = "/add/user", method = RequestMethod.POST)
-        public String addUser(@ModelAttribute("user") Users user,
-                              BindingResult result) {
-
-            usersService.addUser(user);
-
-            return "redirect:/index";
+        if (logout != null){
+            model.addAttribute("message", "Logged out successfully");
         }
 
-        @RequestMapping("/delete/user/{userId}")
+        return "login";
+
+    }
+
+    // в значения добавить к велком знач / т.е. будет {"/","/welcome"}
+    @RequestMapping(value = "/welcome", method = RequestMethod.GET)
+    public  String welcome(Model model){
+        return "welcome";
+    }
+
+    @RequestMapping(value = "/admin", method = RequestMethod.GET)
+    public String admin(Model model){
+        return "admin";
+    }
+
+    @RequestMapping("/delete/user/{userId}")
         public String deleteUser(@PathVariable("userId") Integer userId) {
 
-            usersService.deleteUser(userId);
+            userService.deleteUser(userId);
 
-            return "redirect:/index";
-        }
+            return "redirect:/welcome";
+    }
 
     @RequestMapping("/")
     @ResponseBody

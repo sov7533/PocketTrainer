@@ -1,12 +1,12 @@
 package com.pocket.trainer.PocketTrainer.domain;
 
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "USERS")
-public class Users {
+public class User {
 
     @Id
     @Column(name = "ID")
@@ -25,6 +25,9 @@ public class Users {
     @Column(name = "PASSWORD")
     private String password;
 
+    @Transient
+    private String confirmPassword;
+
     @Column(name = "WEIGHT")
     private Integer weight;
 
@@ -33,6 +36,14 @@ public class Users {
 
     @Column(name = "LEVEL")
     private Integer level ;
+
+    @ManyToMany
+    @JoinTable(name = "USERROLE", joinColumns = @JoinColumn(name = "USERSID"),
+            inverseJoinColumns = @JoinColumn(name = "ROLESID"))
+    private Set<Role> roles;
+
+////    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+////    private Collection<UserTraining> training;
 
     public String getFirsname() {
         return firsname;
@@ -66,6 +77,14 @@ public class Users {
         this.password = password;
     }
 
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
+
     public Integer getWeight() {
         return weight;
     }
@@ -90,13 +109,11 @@ public class Users {
         this.level = level;
     }
 
-    //    @ManyToMany
-//    //@JoinTable(name = "USERROLE"),
-//    //joinColumns = @JoinColumn(name = "USERSID"),
-//    //inverseJoinColumns = @JoinColumn(name = "ROLESID")
-//    private List<Roles> user;
-//
-//    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
-//    private Collection<UserTraining> training;
+    public Set<Role> getRoles() {
+        return roles;
+    }
 
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
 }
