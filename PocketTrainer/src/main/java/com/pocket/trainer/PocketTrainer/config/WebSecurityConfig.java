@@ -45,13 +45,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-
-                .anyRequest().anonymous()
+                .antMatchers("/welcome").hasAnyRole("USER", "ADMIN")
+                .antMatchers("/admin").hasRole("ADMIN")
                 .and()
                 .userDetailsService(userDetailsService())
                 .authenticationProvider(authProvider())
                 .formLogin()
-                .defaultSuccessUrl("/", false)
+                .defaultSuccessUrl("/welcome", false)
                 .usernameParameter("username")
                 .passwordParameter("password")
                 .and()

@@ -24,6 +24,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
         User user = userRepository.findByLogin(login);
 
+        if(user == null){
+            throw new UsernameNotFoundException(login);
+        }
+
         //раазрешения которые мы даем пользователю
         Set<GrantedAuthority> grantedAuthority = new HashSet<>();
 
