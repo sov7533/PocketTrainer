@@ -1,4 +1,10 @@
 package com.pocket.trainer.PocketTrainer.repository;
 
-public interface TrainingInfoRepository {
+import com.pocket.trainer.PocketTrainer.domain.News;
+import com.pocket.trainer.PocketTrainer.domain.TrainingInfo;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface TrainingInfoRepository extends JpaRepository<TrainingInfo, Integer> {
 }

@@ -80,11 +80,5 @@ public class UserController {
 
             return "redirect:/welcome";
     }
-
-    @RequestMapping("/")
-    @ResponseBody
-    public String startPage() {
-        return ("Hello World");
-    }
 }
 

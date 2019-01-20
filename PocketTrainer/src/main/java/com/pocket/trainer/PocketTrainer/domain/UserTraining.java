@@ -3,7 +3,6 @@ package com.pocket.trainer.PocketTrainer.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "USERTRAINING")
 public class UserTraining {
 
     @Id
