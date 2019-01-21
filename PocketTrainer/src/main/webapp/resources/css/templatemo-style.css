@@ -17,7 +17,8 @@ p {
 }
 
 .page-content {
-  width: 77.5%;
+  width: 55%;
+  margin-right: 22.5%;
   float: right;
 }
 
@@ -179,6 +180,15 @@ header {
 .sidebar-navigation {
   width: 22.5%;
   float: left;
+  height: 100%;
+  position: fixed;
+  background-color: rgba(12,12,12,0.9);
+  z-index: 10;
+}
+.sidebar-navigation-right {
+  width: 22.5%;
+  float: left;
+  left: 77.5%;
   height: 100%;
   position: fixed;
   background-color: rgba(12,12,12,0.9);
