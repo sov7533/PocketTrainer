@@ -61,37 +61,6 @@
 
 <div class="sidebar-navigation-right hidde-sm hidden-xs">
 </div>
-<%--<div class="slider">--%>
-<%--<div class="Modern-Slider content-section" id="top">--%>
-<%--<c:if test="${newsEnable}">--%>
-<%--<c:forEach items="${news}" var="item">--%>
-<%--<div class="item item-1">--%>
-
-<%--<h1>${item.head}</h1>--%>
-<%--${item.body}--%>
-<%--&lt;%&ndash;<div class="image"></div>&ndash;%&gt;--%>
-<%--&lt;%&ndash;<div class="info">&ndash;%&gt;--%>
-<%--&lt;%&ndash;<div>&ndash;%&gt;--%>
-<%--&lt;%&ndash;<h1>Beautiful Template<br>Sentra</h1>&ndash;%&gt;--%>
-<%--&lt;%&ndash;<p>Sentra is free Bootstrap CSS template by&ndash;%&gt;--%>
-<%--&lt;%&ndash;<a rel="nofollow noopener" href="https://templatemo.com">templatemo</a> website.<br>&ndash;%&gt;--%>
-<%--&lt;%&ndash;Please share our site to your friends.</p>&ndash;%&gt;--%>
-<%--&lt;%&ndash;<div class="white-button button">&ndash;%&gt;--%>
-<%--&lt;%&ndash;<a href="#featured">Discover More</a>&ndash;%&gt;--%>
-<%--&lt;%&ndash;</div>&ndash;%&gt;--%>
-<%--&lt;%&ndash;</div>&ndash;%&gt;--%>
-<%--&lt;%&ndash;</div>&ndash;%&gt;--%>
-<%--</div>--%>
-<%--</c:forEach>--%>
-<%--</c:if>--%>
-<%--<c:if test="${not newsEnable}">--%>
-<%--<div class="item item-1">--%>
-<%--${trbody}--%>
-<%--</div>--%>
-<%--</c:if>--%>
-<%--</div>--%>
-<%--</div>--%>
-
 
 <div class="page-content">
     <%--</section>--%>
@@ -100,26 +69,9 @@
             <section id="projects" class="content-section">
                 <div class="section-heading">
                     <h1><em> ${item.head}</em></h1>
-
                 </div>
                 <div class="section-content">
                     <p> ${item.body}</p>
-                        <%--<div class="masonry">--%>
-                        <%--<div class="row">--%>
-                        <%--<div class="item">--%>
-                        <%--<div class="col-md-8">--%>
-                        <%--<a href="img/portfolio_big_1.jpg" data-lightbox="image">--%>
-                        <%--<img src="img/portfolio_1.jpg" alt="image 1"></a>--%>
-                        <%--</div>--%>
-                        <%--</div>--%>
-                        <%--<div class="item second-item">--%>
-                        <%--<div class="col-md-4">--%>
-                        <%--<a href="img/portfolio_big_2.jpg" data-lightbox="image">--%>
-                        <%--<img src="img/portfolio_2.jpg" alt="image 2"></a>--%>
-                        <%--</div>--%>
-                        <%--</div>--%>
-                        <%--</div>--%>
-                        <%--</div>--%>
                 </div>
             </section>
         </c:forEach>
@@ -135,32 +87,6 @@
         </section>
     </c:if>
 
-    <%--<section id="video" class="content-section">--%>
-    <%--<div class="row">--%>
-    <%--<div class="col-md-12">--%>
-    <%--<div class="section-heading">--%>
-    <%--<h1>This is a <em>project</em> presentation.</h1>--%>
-    <%--<p>Praesent pellentesque efficitur magna, sed pellentesque neque malesuada vitae.</p>--%>
-    <%--</div>--%>
-    <%--<div class="text-content">--%>
-    <%--<p>In eget ipsum sed lorem vehicula luctus. Curabitur non dolor rhoncus, hendrerit justo sit amet, vestibulum turpis. Pellentesque id auctor tellus, vel ultricies augue. Duis condimentum aliquet blandit. Fusce rhoncus et eros ut pharetra. Phasellus convallis ultricies ligula ac gravida.</p>--%>
-    <%--</div>--%>
-    <%--<div class="accent-button button">--%>
-    <%--<a href="#blog">Continue Reading</a>--%>
-    <%--</div>--%>
-    <%--</div>--%>
-    <%--<div class="col-md-12">--%>
-    <%--<div class="box-video">--%>
-    <%--<div class="bg-video" style="background-image: url(https://unsplash.imgix.net/photo-1425036458755-dc303a604201?fit=crop&fm=jpg&q=75&w=1000);">--%>
-    <%--<div class="bt-play">Play</div>--%>
-    <%--</div>--%>
-    <%--<div class="video-container">--%>
-    <%--<iframe width="100%" height="520" src="https://www.youtube.com/embed/j-_7Ub-Zkow?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen="allowfullscreen"></iframe>--%>
-    <%--</div>--%>
-    <%--</div>--%>
-    <%--</div>--%>
-    <%--</div>--%>
-    <%--</section>--%>
     <section class="footer">
         <p>Copyright &copy; 2019 PocetTrainer
             <%--<a rel="nofollow noopener" href="https://templatemo.com/tm-518-sentra"--%>
@@ -169,11 +95,6 @@
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
-
-<%--<script src="js/vendor/bootstrap.min.js"></script>--%>
-<%----%>
-<%--<script src="js/plugins.js"></script>--%>
-<%--<script src="js/main.js"></script>--%>
 
 </body>
 </html>

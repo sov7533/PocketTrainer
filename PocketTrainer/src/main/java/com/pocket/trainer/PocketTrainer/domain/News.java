@@ -1,6 +1,8 @@
 package com.pocket.trainer.PocketTrainer.domain;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 public class News {
@@ -14,6 +16,9 @@ public class News {
 
     @Column(name = "BODY")
     private String body;
+
+    @Column(name = "DATE")
+    private LocalDate date;
 
     public String getHead() {
         return head;
@@ -29,5 +34,11 @@ public class News {
 
     public void setBody(String body) {
         this.body = body;
+    }
+
+    public LocalDate getDate() { return date; }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 }

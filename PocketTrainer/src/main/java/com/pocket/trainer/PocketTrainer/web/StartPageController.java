@@ -24,7 +24,7 @@ public class StartPageController {
     public String startPage(Model model) {
 
         model.addAttribute("newsEnable", true);
-        model.addAttribute("news", newsRepository.findAll());
+        model.addAttribute("news", newsRepository.sortNews());
         model.addAttribute("traininginfo", trainingInfoRepository.findAll());
 
         return "index";
