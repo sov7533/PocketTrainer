@@ -18,19 +18,12 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/light-box.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/owl-carousel.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/templatemo-style.css">
-
+    <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
-
     <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-
-    <script>
-
-    </script>
 </head>
 
 <body>
-
-
 <header class="nav-down responsive-nav hidden-lg hidden-md">
     <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
         <span class="sr-only">Toggle navigation</span>
@@ -60,6 +53,26 @@
 </div>
 
 <div class="sidebar-navigation-right hidde-sm hidden-xs">
+        <%--<title>Log in with your account</title>--%>
+        <%--<link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">--%>
+        <%--<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>--%>
+        <%--<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>--%>
+
+    <div class="log-in">
+        <form method="POST" action="${contextPath}/login" class="form-signin">
+            <h2 class="form-heading">Log in</h2>
+            <div class="form-group ${error != null ? 'has-error' : ''}">
+                <span>${message}</span>
+                <input name="username" type="text" class="form-control" placeholder="Username"
+                       autofocus="true"/>
+                <input name="password" type="password" class="form-control" placeholder="Password"/>
+                <span>${error}</span>
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                <button class="log-in-button btn btn-lg btn-primary btn-block" type="submit">Log In</button>
+                <h4 class="text-center"><a href="${contextPath}/registration">Create an account</a></h4>
+            </div>
+        </form>
+    </div>
 </div>
 
 <div class="page-content">

@@ -1,7 +1,17 @@
-body {
-    padding-top: 40px;
-    padding-bottom: 40px;
-    background-color: #eee;
+/*мой фиолетовый #45489a*/
+.log-in-button{
+    background-color: #45489a;
+    border-color: white;
+}
+.log-in {
+    width: 85%;
+    margin: auto;
+    color: white;
+}
+
+a{
+color: white;
+text-decoration: none;
 }
 
 .form-signin {
